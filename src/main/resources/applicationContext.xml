@@ -33,6 +33,7 @@
         <property name="mapperLocations" value="classpath:com/hellen/mapper/*Mapper.xml"/>
     </bean>
     <!-- 4.事务管理器 -->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
     </bean>

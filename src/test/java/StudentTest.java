@@ -18,7 +18,7 @@ public class StudentTest extends BaseTest{
     public void testinsert() throws Exception {
         Student student = new Student();
         student.setName("hellen");
-        student.setAge(11);
+        student.setAge(12);
         Integer integer = studentService.insertOne(student);
         log.info(integer+"");
     }
