@@ -67,11 +67,11 @@ public class Node implements Serializable {
         for (int num : nums) {
             node.insert(new Integer(num));
         }
-        System.out.println(JSON.toJSONString(node));
         List<List<Integer>> lists = node.printNode(node);
         for (List<Integer> list : lists) {
             System.out.println(list);
         }
+        System.out.println(JSON.toJSONString(node.get(3).getLeft().value));
 
     }
 
@@ -111,5 +111,23 @@ public class Node implements Serializable {
             }
         }
         return result;
+    }
+
+    public Node get(Integer value){
+        Node t = root;
+        if(t == null){
+            return null;
+        }
+        while (t != null){
+            int cmp = value.compareTo(t.getValue());
+            if(cmp < 0){
+                t = t.getLeft();
+            }else if(cmp > 0){
+                t = t.getRight();
+            }else {
+                return t;
+            }
+        }
+        return null;
     }
 }
